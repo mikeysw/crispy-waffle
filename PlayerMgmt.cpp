@@ -30,7 +30,6 @@ void PlayerMgmt::display_entry_and_menu() const {
     cout << long_separator << endl
          << "  new     add       search    \n"
          << "  print   display   stop     \n"
-         << "  next    previous  edit     \n"
          << short_separator << endl;
 }
 
@@ -73,12 +72,12 @@ void PlayerMgmt::execute(char command, bool & done)
         }
         case 'p': {
             //Print a list of players
-            for(const auto& [e.lastName,e.firstName,e.yearOfBirth,e.category,e.regStatus]:m){
-                cout << e.lastName << '\n';
-                cout << e.firstName << '\n';
-                cout << e.yearOfBirth << '\n';
-                cout << e.category << '\n';
-                cout << e.regStatus << '\n';
+            for(const auto& [lastName,firstName,yearOfBirth,category,regStatus]:itr_current_entry){
+                cout << lastName << '\n';
+                cout << firstName << '\n';
+                cout << yearOfBirth << '\n';
+                cout << category << '\n';
+                cout << regStatus << '\n';
             }
             break;
         }
