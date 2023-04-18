@@ -74,8 +74,13 @@ void PlayerMgmt::execute(char command, bool & done)
             getline(cin, e.firstName);
             cout << "Year of birth: ";       
             cin >> e.yearOfBirth;
+<<<<<<< HEAD
             cout << "Category: ";
             getline(cin, e.category); //season year - birthyear = category
+=======
+            cout << "Category: ";  //calculate
+            getline(cin, e.category);
+>>>>>>> 3e19b8416709393bda37dda57a45df9ef76afb0e
             cout << "Reg status: ";
             getline(cin, e.regStatus);
             entry_list.add(e);
