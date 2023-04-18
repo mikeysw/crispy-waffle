@@ -9,7 +9,7 @@ void PlayerMgmt::run()
     entry_list.read_file(file_name);
     bool done = false;
     while (!done) {
-        display_entry_and_menu();
+        display_entry_and_main();
         cout << "choice: ";
         char command;
         cin >> command;
@@ -19,7 +19,7 @@ void PlayerMgmt::run()
     }
 }
 
-void PlayerMgmt::display_entry_and_menu() const {
+void PlayerMgmt::display_entry_and_main() const {
     string long_separator(50, '-');
     string short_separator(8, '-');
 
@@ -30,6 +30,21 @@ void PlayerMgmt::display_entry_and_menu() const {
     cout << long_separator << endl
          << "  new     add       search    \n"
          << "  print   display   stop     \n"
+         << short_separator << endl;
+}
+//CHECKKKKKK
+
+void PlayerMgmt::display_entry_and_search() const {
+    string long_separator(50, '-');
+    string short_separator(8, '-');
+
+    system(clear_command);
+
+    entry_list.display_current_entry();
+
+    cout << long_separator << endl
+         << "  search   next    previous   \n"
+         << "  edit     print    exit     stop     \n"
          << short_separator << endl;
 }
 
@@ -57,10 +72,10 @@ void PlayerMgmt::execute(char command, bool & done)
             getline(cin, e.lastName);
             cout << "First name: ";
             getline(cin, e.firstName);
-            cout << "Year of birth: ";
+            cout << "Year of birth: ";       
             cin >> e.yearOfBirth;
             cout << "Category: ";
-            getline(cin, e.category);
+            getline(cin, e.category); //season year - birthyear = category
             cout << "Reg status: ";
             getline(cin, e.regStatus);
             entry_list.add(e);
@@ -72,12 +87,12 @@ void PlayerMgmt::execute(char command, bool & done)
         }
         case 'p': {
             //Print a list of players
-            for(const auto& [lastName,firstName,yearOfBirth,category,regStatus]:itr_current_entry){
-                cout << lastName << '\n';
-                cout << firstName << '\n';
-                cout << yearOfBirth << '\n';
-                cout << category << '\n';
-                cout << regStatus << '\n';
+            for(const auto& [e.lastName, e.firstName, e.yearOfBirth, e.category, e.regStatus] : m){
+                cout << e.lastName << '\n';
+                cout << e.firstName << '\n';
+                cout << e.yearOfBirth << '\n';
+                cout << e.category << '\n';
+                cout << e.regStatus << '\n';
             }
             break;
         }
