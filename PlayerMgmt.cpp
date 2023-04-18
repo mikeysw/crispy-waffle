@@ -59,7 +59,7 @@ void PlayerMgmt::execute(char command, bool & done)
             getline(cin, e.firstName);
             cout << "Year of birth: ";
             cin >> e.yearOfBirth;
-            cout << "Category: ";
+            cout << "Category: ";  //calculate
             getline(cin, e.category);
             cout << "Reg status: ";
             getline(cin, e.regStatus);
