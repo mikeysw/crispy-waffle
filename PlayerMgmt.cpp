@@ -1,7 +1,7 @@
 //PlayerMgmt.cpp
 
 #include "PlayerMgmt.h"
-
+#include <string> 
 using namespace std;
 
 void PlayerMgmt::run()
@@ -51,6 +51,7 @@ void PlayerMgmt::display_entry_and_search() const {
 void PlayerMgmt::execute(char command, bool & done)
 {
     switch (command) {
+        
         case 'n': {
             // Start a new season
             break;
@@ -60,45 +61,56 @@ void PlayerMgmt::execute(char command, bool & done)
             entry_list.move_to_next();
             break;
         }
-        case 'previous': {
+        case 'prev': {
             // Move to previous
             entry_list.move_to_previous();
             break;
         }
+        
         case 'a': {
             // Add a player
             PlayerEntry e;
+            string lastName0;
+            string firstName0;
+            int yearOfBirth0;
+            string category0;
+            string regStatus0;
             cout << "Last name: ";
-            getline(cin, e.lastName);
+            getline(cin, lastName0);
+            e.setLastName(lastName0);
             cout << "First name: ";
-            getline(cin, e.firstName);
+            getline(cin, firstName0);
+            e.setLastName(firstName0);
             cout << "Year of birth: ";       
-            cin >> e.yearOfBirth;
-<<<<<<< HEAD
+            cin >> yearOfBirth0;
+            e.setYearOfBirth(yearOfBirth0);
             cout << "Category: ";
-            getline(cin, e.category); //season year - birthyear = category
-=======
-            cout << "Category: ";  //calculate
-            getline(cin, e.category);
->>>>>>> 3e19b8416709393bda37dda57a45df9ef76afb0e
-            cout << "Reg status: ";
-            getline(cin, e.regStatus);
+            int category_int;
+            category_int = 2023 - int(yearOfBirth0); //season year - birthyear = category
+            category0 = "U"+ to_string(category_int);
+            e.setCategory(category0);
+            cout << "RegStatus: ";
+            getline(cin, regStatus0);
+            e.setLastName(regStatus0);
             entry_list.add(e);
             break;
         }
+        
         case 'se': {
             //Search for players
             break;
         }
         case 'p': {
             //Print a list of players
-            for(const auto& [e.lastName, e.firstName, e.yearOfBirth, e.category, e.regStatus] : m){
+            
+            for(const auto& [e.getLastName(), e.getFirstName(), e.getYearOfBirth(), e.Category(), e.RegStatus()] : entry_list){
                 cout << e.lastName << '\n';
                 cout << e.firstName << '\n';
                 cout << e.yearOfBirth << '\n';
                 cout << e.category << '\n';
                 cout << e.regStatus << '\n';
             }
+            
             break;
         }
         case 'd': {
@@ -109,5 +121,6 @@ void PlayerMgmt::execute(char command, bool & done)
             // Stop the program
             break;
         }
+        
     }
 }

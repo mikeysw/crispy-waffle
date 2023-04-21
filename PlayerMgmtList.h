@@ -29,7 +29,7 @@ private:
 };
 
 inline void PlayerMgmtList::add(const PlayerEntry & e){
-    auto result = m_entries.insert({e.lastName, e});
+    auto result = m_entries.insert({e.getLastName(), e});
     itr_current_entry = result.first;
 }
 

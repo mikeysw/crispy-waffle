@@ -21,7 +21,8 @@ public:
     void run();
 
 private:
-    void display_entry_and_menu() const;
+    void display_entry_and_main() const;
+    void display_entry_and_search() const;
     void execute(char command, bool & done);
 
     PlayerMgmtList entry_list;
