@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/82105/Documents/GitHub/crispy-waffle",
-      "program": "c:/Users/82105/Documents/GitHub/crispy-waffle/build/Debug/outDebug",
+      "cwd": "c:/Users/laure/OneDrive/Documents/GitHub/crispy-waffle",
+      "program": "c:/Users/laure/OneDrive/Documents/GitHub/crispy-waffle/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
