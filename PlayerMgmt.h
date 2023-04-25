@@ -21,8 +21,8 @@ public:
     void run();
 
 private:
-    void display_entry_and_main() const;
-    void display_entry_and_search() const;
+    void display_entry_and_main() const; // main view - before searching (return to this view with command exit)
+    void display_entry_and_search() const; // second view - after searching
     void execute(char command, bool & done);
 
     PlayerMgmtList entry_list;

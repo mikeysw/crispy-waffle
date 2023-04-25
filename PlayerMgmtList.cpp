@@ -13,7 +13,10 @@ using std::pair;
 #include <string>
 using std::string;
 
-void PlayerMgmtList::update_current_entry(const PlayerEntry & new_data){
+void PlayerMgmtList::update_current_player(const PlayerEntry & new_data){
+    itr_current_player->second.update(new_data);
+
+
 
 }
 

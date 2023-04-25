@@ -85,17 +85,50 @@ void PlayerMgmt::execute(char command, bool & done)
             cin >> yearOfBirth0;
             e.setYearOfBirth(yearOfBirth0);
             cout << "Category: ";
-            int category_int;
+            int category_int;                      //we should probably make this into a function
             category_int = 2023 - int(yearOfBirth0); //season year - birthyear = category
             category0 = "U"+ to_string(category_int);
             e.setCategory(category0);
-            cout << "RegStatus: ";
+            cout << "Registration status (paid or unpaid): ";
             getline(cin, regStatus0);
             e.setLastName(regStatus0);
             entry_list.add(e);
             break;
         }
         
+        case 'e': {
+            //edit player info
+            if (entry_list.empty())
+                return;
+            PlayerEntry new_data;
+            string lastName0;
+            string firstName0;
+            int yearOfBirth0;
+            string category0;
+            string regStatus0;
+            cout << "Leave blank if no change is needed." << endl;
+            cout << "Update last name: ";
+            getline(cin, lastName0);
+            new_data.setLastName(lastName0);
+            cout << "Update first name: ";
+            getline(cin, firstName0);
+            new_data.setLastName(firstName0);
+            cout << "Update year of birth: ";       
+            cin >> yearOfBirth0;
+            new_data.setYearOfBirth(yearOfBirth0);
+            cout << "Category: ";
+            int category_int;                        //we should probably make this into a function
+            category_int = 2023 - int(yearOfBirth0); //season year - birthyear = category
+            category0 = "U"+ to_string(category_int);
+            new_data.setCategory(category0);
+            cout << "Update registration status (paid or unpaid): ";
+            getline(cin, regStatus0);
+            new_data.setLastName(regStatus0);
+
+            entry_list.update_current_player(new_data);
+            break;
+        }
+
         case 'se': {
             //Search for players
             break;
@@ -115,10 +148,13 @@ void PlayerMgmt::execute(char command, bool & done)
         }
         case 'd': {
             //Display Statistics
+            PlayerEntry::display_stats();
+            ///bklah blah
             break;
         }
         case 'st': {
             // Stop the program
+            done = true;
             break;
         }
         
