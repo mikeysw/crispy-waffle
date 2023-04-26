@@ -149,11 +149,11 @@ void PlayerMgmt::execute(char command, bool & done)
         case 'd': {
             //Display Statistics
             PlayerEntry::display_stats();
-            ///bklah blah
             break;
         }
         case 'st': {
             // Stop the program
+            entry_list.write_file(file_name);
             done = true;
             break;
         }
