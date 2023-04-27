@@ -85,13 +85,35 @@ void PlayerMgmt::execute(char command, bool & done)
             getline(cin, yearOfBirth0);
             //e.setYearOfBirth(yearOfBirth0);
             category_int = 2023 - stoi(yearOfBirth0); //season year - birthyear = category
-            category0 = "U"+ to_string(category_int);
+            if (category_int < 6){
+                category0="U6";
+            }
+            else if(6 <= category_int < 8){
+                category0="U8";
+            }
+            else if(8 <= category_int < 10){
+                category0="U10";
+            }
+            else if(10 <= category_int < 12){
+                category0="U12";
+            }
+            else if(12 <= category_int < 14){
+                category0="U14";
+            }
+            else if(14 <= category_int < 17){
+                category0="U17";
+            }
+            else{
+                "There is no category";
+                break;
+            }
+            //category0 = "U"+ to_string(category_int);
             //e.setCategory(category0);
             cout << "RegStatus: " << category0;
             getline(cin, regStatus0);
             //e.setLastName(regStatus0);
             Player e(lastName0, firstName0, yearOfBirth0, category0, regStatus0);
-            player_list.update_current_player(e);
+            player_list.add(e);
             cout << e.getFirstName() << " " << e.getLastName();
             cin.get();
             break;
@@ -99,12 +121,13 @@ void PlayerMgmt::execute(char command, bool & done)
         
         case 'e': {
             //edit player info
-            if (entry_list.empty())
+            /*
+            if (player_list.empty())
                 return;
-            PlayerEntry new_data;
+            Player new_data;
             string lastName0;
             string firstName0;
-            int yearOfBirth0;
+            string yearOfBirth0;
             string category0;
             string regStatus0;
             cout << "Leave blank if no change is needed." << endl;
@@ -125,18 +148,34 @@ void PlayerMgmt::execute(char command, bool & done)
             cout << "Update registration status (paid or unpaid): ";
             getline(cin, regStatus0);
             new_data.setLastName(regStatus0);
-
+*/
         }
         case 'P': {
-            /*for(const auto& [e.getLastName(), e.getFirstName(), e.getYearOfBirth(), e.Category(), e.RegStatus()] : player_list){
+            string check;
+            cout << "Choose (M)ain view or (S)earch view: " << endl;
+            getline(cin,check);
+            if(check.compare("M")==0){
+                string filename;
+                cout << "Enter the name of the file to write to: ";
+                getline(cin, filename);
+                player_list.write_file(filename);
+            }
+            else{
+                string filename;
+                cout << "Enter the name of the file to write to: ";
+                getline(cin, filename);
+                player_list.main_write_file(filename);
+            }
+            /*
+            for(const auto& [e.getLastName(), e.getFirstName(), e.getYearOfBirth(), e.Category(), e.RegStatus()] : player_list){
                 cout << e.lastName << '\n';
                 cout << e.firstName << '\n';
                 cout << e.yearOfBirth << '\n';
                 cout << e.category << '\n';
                 cout << e.regStatus << '\n';
-            }*/
+            }
             player_list.display_current_player();
-            
+            */
             break;
         }
         case 'd': {}

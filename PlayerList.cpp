@@ -1,5 +1,5 @@
 #include "PlayerList.h"
-
+#include <algorithm>
 #include <fstream>
 //#include <ifstream>
 using std::ifstream;
@@ -42,13 +42,68 @@ void PlayerList::read_file(const std::string & file_name){
     }
     itr_current_player = m_players.begin();
 }
-
+//search view write
 void PlayerList::write_file(const std::string & file_name) const{
     ofstream save(file_name);
-
+    sort(m_players.begin(),m_players.end());
     auto itr_print_current_player = m_players.begin();
     for (int i = 0; i < m_players.size(); ++i) {
         cout << itr_print_current_player->second;
         ++itr_print_current_player;
     }
+    
+}
+//main view write
+void PlayerList::main_write_file(const std::string & file_name) const{
+    ofstream outFile(file_name);
+    sort(m_players.begin(),m_players.end());
+    cout << "U6 Players: " <<endl;
+    auto itr_print_current_player = m_players.begin();
+    for (int i = 0; i < m_players.size(); ++i) {
+        if(itr_print_current_player.category == "U6"){
+            cout << itr_print_current_player->second;
+            ++itr_print_current_player;
+        }
+    }
+    cout << "U8 Players: " <<endl;
+    auto itr_print_current_player = m_players.begin();
+    for (int i = 0; i < m_players.size(); ++i) {
+        if(itr_print_current_player.category == "U8"){
+            cout << itr_print_current_player->second;
+            ++itr_print_current_player;
+        }
+    }
+    cout << "U10 Players: " <<endl;
+    auto itr_print_current_player = m_players.begin();
+    for (int i = 0; i < m_players.size(); ++i) {
+        if(itr_print_current_player.category == "U10"){
+            cout << itr_print_current_player->second;
+            ++itr_print_current_player;
+        }
+    }
+    cout << "U12 Players: " <<endl;
+    auto itr_print_current_player = m_players.begin();
+    for (int i = 0; i < m_players.size(); ++i) {
+        if(itr_print_current_player.category == "U12"){
+            cout << itr_print_current_player->second;
+            ++itr_print_current_player;
+        }
+    }
+    cout << "U14 Players: " <<endl;
+    auto itr_print_current_player = m_players.begin();
+    for (int i = 0; i < m_players.size(); ++i) {
+        if(itr_print_current_player.category == "U14"){
+            cout << itr_print_current_player->second;
+            ++itr_print_current_player;
+        }
+    }
+    cout << "U17 Players: " <<endl;
+    auto itr_print_current_player = m_players.begin();
+    for (int i = 0; i < m_players.size(); ++i) {
+        if(itr_print_current_player.category == "U17"){
+            cout << itr_print_current_player->second;
+            ++itr_print_current_player;
+        }
+    }
+    
 }

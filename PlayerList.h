@@ -31,7 +31,7 @@ public:
     void edit_current_player(const Player & new_data);
     void read_file(const string & file_name);
     void write_file(const string & file_name) const;
-
+    void main_write_file(const string & file_name) const;
 
 private:
     int season;
