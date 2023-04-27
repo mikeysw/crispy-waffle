@@ -151,10 +151,8 @@ void PlayerMgmt::execute(char command, bool & done)
 */
         }
         case 'P': {
-            string check;
-            cout << "Choose (M)ain view or (S)earch view: " << endl;
-            getline(cin,check);
-            if(check.compare("M")==0){
+            
+            if(MorS == true){
                 string filename;
                 cout << "Enter the name of the file to write to: ";
                 getline(cin, filename);
