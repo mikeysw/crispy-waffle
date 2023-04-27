@@ -86,7 +86,7 @@ void PlayerMgmt::execute(char command, bool & done)
             e.setYearOfBirth(yearOfBirth0);
             cout << "Category: ";
             int category_int;                      //we should probably make this into a function
-            category_int = 2023 - int(yearOfBirth0); //season year - birthyear = category
+            category_int = 2023 - int(yearOfBirth0); //season year - birthyear = categoryint
             category0 = "U"+ to_string(category_int);
             e.setCategory(category0);
             cout << "Registration status (paid or unpaid): ";
@@ -118,7 +118,7 @@ void PlayerMgmt::execute(char command, bool & done)
             new_data.setYearOfBirth(yearOfBirth0);
             cout << "Category: ";
             int category_int;                        //we should probably make this into a function
-            category_int = 2023 - int(yearOfBirth0); //season year - birthyear = category
+            category_int = 2023 - int(yearOfBirth0); //season year - birthyear = categoryint
             category0 = "U"+ to_string(category_int);
             new_data.setCategory(category0);
             cout << "Update registration status (paid or unpaid): ";
