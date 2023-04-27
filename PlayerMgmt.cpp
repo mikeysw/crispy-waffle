@@ -88,19 +88,19 @@ void PlayerMgmt::execute(char command, bool & done)
             if (category_int < 6){
                 category0="U6";
             }
-            else if(6 <= category_int < 8){
+            else if(6 <= category_int && category_int < 8){
                 category0="U8";
             }
-            else if(8 <= category_int < 10){
+            else if(8 <= category_int && category_int < 10){
                 category0="U10";
             }
-            else if(10 <= category_int < 12){
+            else if(10 <= category_int && category_int < 12){
                 category0="U12";
             }
-            else if(12 <= category_int < 14){
+            else if(12 <= category_int && category_int < 14){
                 category0="U14";
             }
-            else if(14 <= category_int < 17){
+            else if(14 <= category_int && category_int < 17){
                 category0="U17";
             }
             else{
