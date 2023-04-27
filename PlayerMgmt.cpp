@@ -29,7 +29,7 @@ void PlayerMgmt::display_entry_and_main() const {
 
     cout << long_separator << endl
          << "  (N)ew     (a)dd       (S)earch    \n"
-         << "  (p)rint   (d)isplay   (s)top     \n"
+         << "  (P)rint   (d)isplay   (s)top     \n"
          << short_separator << endl;
 }
 //CHECKKKKKK

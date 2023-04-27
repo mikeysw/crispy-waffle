@@ -13,6 +13,7 @@ using std::pair;
 #include <string>
 using std::string;
 
+
 void PlayerMgmtList::update_current_player(const PlayerEntry & new_data){
     itr_current_player->second.update(new_data);
     string new_lname = new_data.lastName;

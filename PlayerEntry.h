@@ -46,9 +46,9 @@ private:
     string regStatus;
 
     int players;
-    int paid;
-    int unpaid;
     int U6;
+    int pU6;
+    int upU6;
     int U8;
     int U10;
     int U12;
@@ -57,6 +57,39 @@ private:
     int U17;
 
 };
+
+
+inline void PlayerEntry::display_stats() {
+    for (int i = 0; i < players; ++i) {          //go thru all players
+    if (category == "U6") {
+        ++U6;
+        if (regStatus == "paid") {
+            ++pU6;
+        } else ++upU6;
+    }
+
+        if (category == "U6") ++U6;
+        else if (category == "U8") ++U8;
+        else if (category == "U10") ++U10;
+        else if (category == "U12") ++U12;
+        else if (category == "U14") ++U14;
+        else if (category == "U16") ++U16;
+        else ++U17;
+    
+    }
+
+    cout << "Total U6: " << U6;
+    cout << "Total paid U6: " << pU6;
+    cout << "Total unpaid U6:" << upU6;
+    cout << "Total U8: " << U8;
+    cout << "Total U10: " << U10;
+    cout << "Total U12: " << U12;
+    cout << "Total U14: " << U14;
+    cout << "Total U16: " << U16;
+    cout << "Total U17: " << U17;
+
+}
+
 
 std::ostream & operator<<(std::ostream & out, const PlayerEntry & player) {
     out << player.lastName << endl;
@@ -103,33 +136,5 @@ inline void PlayerEntry::update(const PlayerEntry & new_data){
         regStatus = new_data.regStatus;
 
 }
-
-
-inline void PlayerEntry::display_stats(){
-    for (int i = 0; i < players; ++i) {  
-        if (regStatus == "paid") ++paid;
-        else ++unpaid;
-
-        if (category == "U6") ++U6;
-        else if (category == "U8") ++U8;
-        else if (category == "U10") ++U10;
-        else if (category == "U12") ++U12;
-        else if (category == "U14") ++U14;
-        else if (category == "U16") ++U16;
-        else ++U17;
-    }
-
-    cout << "Total players:" << players;
-    cout << "Total paid: " << paid;
-    cout << "Total unpaid: " << unpaid;
-    cout << "Total U6: " << U6;
-    cout << "Total U8: " << U8;
-    cout << "Total U10: " << U10;
-    cout << "Total U12: " << U12;
-    cout << "Total U14: " << U14;
-    cout << "Total U16: " << U16;
-    cout << "Total U17: " << U17;
-}
-
 
 #endif

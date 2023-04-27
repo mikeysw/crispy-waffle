@@ -21,6 +21,8 @@ public:
     bool empty() const { return m_entries.empty(); }
     void read_file(const string & file_name);
     void write_file(const string & file_name) const;
+    void display_stats();
+    
 
 
 private:
