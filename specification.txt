@@ -1,0 +1,59 @@
+Soccer player manager
+
+SPECIFICATION
+
+OVERVIEW
+
+DETAILS
+
+SAMPLE INTERFACE (Main View)
+
+Smith
+Tommy
+2008
+U16
+paid
+--------------------------------------------------
+(N)ew     (a)dd       (S)earch
+(p)rint   (d)isplay   (s)top 
+-------
+command: s
+
+SAMPLE INTERFACE (Search View)
+
+Smith
+Tommy
+2008
+U16
+paid
+--------------------------------------------------
+(S)earch   (n)ext    (p)revious  
+(e)dit     (P)rint   (E)xit     (s)top
+-------
+command: s
+
+COMMANDS
+
+New: Begin a new season.
+
+add: Add a new player. Asks for information one piece at a time, category is computed.
+
+Search: Searches for players based on user input (of any combination of last name, first name, keyword, year of birth,
+registration status, and category). Changes the view from the main view to the search view.
+
+Print: 
+
+display: Displays the total number of players, and total number of paid and unpaid players, in total and for each category.
+
+stop: Saves the player information to a file and quits the program.
+
+next: The next player is displayed.
+
+previous: The previous player is displayed.
+
+edit: Allows users to edit the current player's information. Users may leave the entries blank and no changes will be made.
+
+Exit: Exits the search view to the main view (changes from search display to main display).
+
+
+
