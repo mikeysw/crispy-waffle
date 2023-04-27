@@ -28,8 +28,8 @@ void PlayerMgmt::display_entry_and_main() const {
     entry_list.display_current_entry();
 
     cout << long_separator << endl
-         << "  new     add       search    \n"
-         << "  print   display   stop     \n"
+         << "  (N)ew     (a)dd       (S)earch    \n"
+         << "  (p)rint   (d)isplay   (s)top     \n"
          << short_separator << endl;
 }
 //CHECKKKKKK
@@ -43,8 +43,8 @@ void PlayerMgmt::display_entry_and_search() const {
     entry_list.display_current_entry();
 
     cout << long_separator << endl
-         << "  search   next    previous   \n"
-         << "  edit     print    exit     stop     \n"
+         << "  (S)earch   (n)ext    (p)revious   \n"
+         << "  (e)dit     (P)rint   (E)xit     (s)top     \n"
          << short_separator << endl;
 }
 
@@ -52,16 +52,16 @@ void PlayerMgmt::execute(char command, bool & done)
 {
     switch (command) {
         
-        case 'n': {
+        case 'N': {
             // Start a new season
             break;
         }
-        case 'next': {
+        case 'n': {
             // Move to next
             entry_list.move_to_next();
             break;
         }
-        case 'prev': {
+        case 'p': {
             // Move to previous
             entry_list.move_to_previous();
             break;
@@ -129,13 +129,13 @@ void PlayerMgmt::execute(char command, bool & done)
             break;
         }
 
-        case 'se': {
+        case 'S': {
             //Search for players
             break;
         }
-        case 'p': {
+        case 'P': {
             //Print a list of players
-            
+            /*
             for(const auto& [e.getLastName(), e.getFirstName(), e.getYearOfBirth(), e.Category(), e.RegStatus()] : entry_list){
                 cout << e.lastName << '\n';
                 cout << e.firstName << '\n';
@@ -143,16 +143,18 @@ void PlayerMgmt::execute(char command, bool & done)
                 cout << e.category << '\n';
                 cout << e.regStatus << '\n';
             }
-            
+            */
             break;
         }
         case 'd': {
             //Display Statistics
+            /*
             PlayerEntry::display_stats();
             ///bklah blah
+            */
             break;
         }
-        case 'st': {
+        case 's': {
             // Stop the program
             done = true;
             break;
