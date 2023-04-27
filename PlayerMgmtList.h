@@ -34,7 +34,10 @@ inline void PlayerMgmtList::add(const PlayerEntry & e){
 }
 
 inline void PlayerMgmtList::display_current_entry() const{
-
+    if(m_entries.empty()) {
+        return;
+        cout << itr_current_player->second;
+    }
 }
 
 inline void PlayerMgmtList::move_to_next(){

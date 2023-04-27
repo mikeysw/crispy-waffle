@@ -28,7 +28,14 @@ void PlayerMgmtList::read_file(const string & file_name){
 }
 
 void PlayerMgmtList::write_file(const string & file_name) const{
+    //should clear file then reprint all new players ***
     ofstream save(file_name);
+
+    auto itr_print_current_player = m_entries.begin();
+    for (int i = 0; i < m_entries.size(); ++i) {
+        cout << itr_print_current_player->second;
+        ++itr_print_current_player;
+    }
 
 
 }

@@ -151,7 +151,7 @@ void PlayerMgmt::execute(char command, bool & done)
             /*
             PlayerEntry::display_stats();
 
-            ///bklah blah
+            //blah blah
             */
 
             break;

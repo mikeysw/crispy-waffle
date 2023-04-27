@@ -10,6 +10,8 @@ using namespace std;
 
 class PlayerEntry{
 public:
+    friend std::ostream & operator<<(std::ostream & out, const PlayerEntry & player);
+
     PlayerEntry() : lastName("no name"), firstName("no name"), yearOfBirth(-1),
                     category("invalid"), regStatus("invalid") {}
     PlayerEntry(const string & lastName0, const string & firstName0, int yearOfBirth0, 
@@ -55,6 +57,37 @@ private:
     int U17;
 
 };
+
+std::ostream & operator<<(std::ostream & out, const PlayerEntry & player) {
+    out << player.lastName << endl;
+    out << player.firstName << endl;
+    out << player.yearOfBirth << endl;
+    out << player.category << endl;
+    out << player.regStatus << endl;
+
+    return out;
+}
+
+std::istream & operator>>(std::istream & in, PlayerEntry & player) {
+    string lastName;
+    getline(in, lastName);
+    player.setLastName(lastName);
+    string firstName;
+    getline(in, firstName);
+    player.setFirstName(firstName);
+    int yearOfBirth;
+    in >> yearOfBirth;
+    player.setYearOfBirth(yearOfBirth);
+    in.get(); //endl char
+    string category;
+    getline(in, category);
+    player.setCategory(category);
+    string regStatus;
+    getline(in, regStatus);
+    player.setRegStatus(regStatus);
+    
+    return in;
+}
 
 inline void PlayerEntry::update(const PlayerEntry & new_data){
     if (!new_data.firstName.empty())
