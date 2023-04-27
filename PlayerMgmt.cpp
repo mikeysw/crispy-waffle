@@ -150,12 +150,15 @@ void PlayerMgmt::execute(char command, bool & done)
             //Display Statistics
             /*
             PlayerEntry::display_stats();
+
             ///bklah blah
             */
+
             break;
         }
         case 's': {
             // Stop the program
+            entry_list.write_file(file_name);
             done = true;
             break;
         }
