@@ -61,14 +61,11 @@ inline void PlayerEntry::update(const PlayerEntry & new_data){
         firstName = new_data.firstName;
     if (!new_data.lastName.empty())
         lastName = new_data.lastName;
-    /*
     if (!new_data.yearOfBirth.empty())
         yearOfBirth = new_data.yearOfBirth;
-        */
    //call category calculator
     if(!new_data.regStatus.empty())
         regStatus = new_data.regStatus;
-
 }
 
 
