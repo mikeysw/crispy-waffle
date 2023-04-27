@@ -45,6 +45,9 @@ void PlayerList::read_file(const std::string & file_name){
 
 void PlayerList::write_file(const std::string & file_name) const{
     ofstream save(file_name);
+    //clear everything from file
+    cout << m_players.size() << endl; //num_players
+    cout << season << endl;           //season year?                
 
     auto itr_print_current_player = m_players.begin();
     for (int i = 0; i < m_players.size(); ++i) {
