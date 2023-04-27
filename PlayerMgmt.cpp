@@ -68,7 +68,57 @@ void PlayerMgmt::execute(char command, bool & done)
             break;
         }
         case 'a': {
-            // Add a player
+            //Player e;
+            int category_int;
+            string lastName0;
+            string firstName0;
+            string yearOfBirth0;
+            string category0;
+            string regStatus0;
+            cout << "Last name: ";
+            getline(cin, lastName0);
+            //e.setLastName(lastName0);
+            cout << "First name: ";
+            getline(cin, firstName0);
+            //e.setLastName(firstName0);
+            cout << "Year of birth: ";       
+            getline(cin, yearOfBirth0);
+            //e.setYearOfBirth(yearOfBirth0);
+            category_int = 2023 - stoi(yearOfBirth0); //season year - birthyear = category
+            category0 = "U"+ to_string(category_int);
+            //e.setCategory(category0);
+            cout << "RegStatus: " << category0;
+            getline(cin, regStatus0);
+            //e.setLastName(regStatus0);
+            Player e(lastName0, firstName0, yearOfBirth0, category0, regStatus0);
+            player_list.add(e);
+            cout << e.getFirstName() << " " << e.getLastName();
+            cin.get();
+            break;}
+        case 's': {
+            MorS = false;
+
+        }
+        case 'P': {
+            /*for(const auto& [e.getLastName(), e.getFirstName(), e.getYearOfBirth(), e.Category(), e.RegStatus()] : player_list){
+                cout << e.lastName << '\n';
+                cout << e.firstName << '\n';
+                cout << e.yearOfBirth << '\n';
+                cout << e.category << '\n';
+                cout << e.regStatus << '\n';
+            }*/
+            player_list.display_current_player();
+            
+            break;
+        }
+        case 'd': {}
+        case 'S': {
+            player_list.write_file(pl_file_name);
+            done = true;
+            break;
+        }
+        case 'e': {
+            //Player e;
             int category_int;
             string lastName0;
             string firstName0;
@@ -96,52 +146,6 @@ void PlayerMgmt::execute(char command, bool & done)
             cin.get();
             break;
         }
-        
-        case 'e': {
-            //edit player info
-            if (entry_list.empty())
-                return;
-            PlayerEntry new_data;
-            string lastName0;
-            string firstName0;
-            int yearOfBirth0;
-            string category0;
-            string regStatus0;
-            cout << "Leave blank if no change is needed." << endl;
-            cout << "Update last name: ";
-            getline(cin, lastName0);
-            new_data.setLastName(lastName0);
-            cout << "Update first name: ";
-            getline(cin, firstName0);
-            new_data.setLastName(firstName0);
-            cout << "Update year of birth: ";       
-            cin >> yearOfBirth0;
-            new_data.setYearOfBirth(yearOfBirth0);
-            cout << "Category: ";
-            int category_int;                        //we should probably make this into a function
-            category_int = 2023 - int(yearOfBirth0); //season year - birthyear = category
-            category0 = "U"+ to_string(category_int);
-            new_data.setCategory(category0);
-            cout << "Update registration status (paid or unpaid): ";
-            getline(cin, regStatus0);
-            new_data.setLastName(regStatus0);
-
-        }
-        case 'P': {
-            /*for(const auto& [e.getLastName(), e.getFirstName(), e.getYearOfBirth(), e.Category(), e.RegStatus()] : player_list){
-                cout << e.lastName << '\n';
-                cout << e.firstName << '\n';
-                cout << e.yearOfBirth << '\n';
-                cout << e.category << '\n';
-                cout << e.regStatus << '\n';
-            }*/
-            player_list.display_current_player();
-            
-            break;
-        }
-        case 'd': {}
-        case 'S': {}
-
         case 'n': {
             searched_list.move_to_next();
             break;
