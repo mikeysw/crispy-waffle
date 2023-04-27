@@ -10,9 +10,9 @@ using namespace std;
 
 class PlayerEntry{
 public:
-    PlayerEntry() : lastName("no name"), firstName("no name"), yearOfBirth(-1),
+    PlayerEntry() : lastName("no name"), firstName("no name"), yearOfBirth("no year"),
                     category("invalid"), regStatus("invalid") {}
-    PlayerEntry(const string & lastName0, const string & firstName0, int yearOfBirth0, 
+    PlayerEntry(const string & lastName0, const string & firstName0, const string & yearOfBirth0, 
                 const string & category0, const string & regStatus0) :
         lastName(lastName0), firstName(firstName0), yearOfBirth(yearOfBirth0), 
         category(category0), regStatus(regStatus0) {
@@ -22,7 +22,7 @@ public:
     // Getters
     string getLastName() const { return lastName; }
     string getFirstName() const { return firstName; }
-    int getYearOfBirth() const { return yearOfBirth; }
+    string getYearOfBirth() const { return yearOfBirth; }
     string getCategory() const { return category; }
     string getRegStatus() const { return regStatus; }
     
@@ -39,7 +39,7 @@ public:
 private:
     string lastName;
     string firstName;
-    int yearOfBirth;
+    string yearOfBirth;
     string category;
     string regStatus;
 

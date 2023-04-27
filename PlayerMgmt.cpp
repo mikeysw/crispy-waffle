@@ -69,29 +69,29 @@ void PlayerMgmt::execute(char command, bool & done)
         
         case 'a': {
             // Add a player
-            PlayerEntry e;
+            
             string lastName0;
             string firstName0;
-            int yearOfBirth0;
+            string yearOfBirth0;
             string category0;
             string regStatus0;
             cout << "Last name: ";
             getline(cin, lastName0);
-            e.setLastName(lastName0);
+            //e.setLastName(lastName0);
             cout << "First name: ";
             getline(cin, firstName0);
-            e.setLastName(firstName0);
+            //e.setLastName(firstName0);
             cout << "Year of birth: ";       
-            cin >> yearOfBirth0;
-            e.setYearOfBirth(yearOfBirth0);
-            cout << "Category: ";
+            getline(cin, yearOfBirth0) ;
+            //e.setYearOfBirth(yearOfBirth0);
             int category_int;                      //we should probably make this into a function
-            category_int = 2023 - int(yearOfBirth0); //season year - birthyear = category
+            category_int = 2023 - stoi(yearOfBirth0); //season year - birthyear = category
             category0 = "U"+ to_string(category_int);
-            e.setCategory(category0);
+            //e.setCategory(category0);
             cout << "Registration status (paid or unpaid): ";
             getline(cin, regStatus0);
-            e.setLastName(regStatus0);
+            //e.setLastName(regStatus0);
+            PlayerEntry e(lastName0, firstName0, yearOfBirth0, category0, regStatus0);
             entry_list.add(e);
             break;
         }

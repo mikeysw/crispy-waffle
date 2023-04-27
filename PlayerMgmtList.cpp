@@ -15,12 +15,14 @@ using std::string;
 
 void PlayerMgmtList::update_current_player(const PlayerEntry & new_data){
     itr_current_player->second.update(new_data);
-    string new_lname = new_data.lastName;
+    //string new_lname = new_data.lastName;
+    /*
     if ( (!new_lname.empty()) && (new_lname != itr_current_player->first) ) {
         auto result = m_entries.insert({new_lname, itr_current_player->second});
         m_entries.erase(itr_current_player);
         itr_current_player = result.first;
     }
+    */
 }
 
 void PlayerMgmtList::read_file(const string & file_name){
