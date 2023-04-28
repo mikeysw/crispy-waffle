@@ -100,16 +100,10 @@ inline istream & operator>>(istream & in, Player & p){
 }
 
 inline ostream & operator<<(ostream & out, const Player & e){
-   out << e.firstName << endl 
-        << " !!!!"
-        << e.lastName
-        << " !!!!"
+   out << e.firstName << e.lastName << endl 
         << e.yearOfBirth << endl
-        << " !!!!"
         << e.category << endl
-        << " !!!!"
-        << e.regStatus << endl
-        << " !!!!";
+        << e.regStatus << endl;
 
     return out;
 }

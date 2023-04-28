@@ -84,7 +84,7 @@ void PlayerList::main_write_file(const std::string & file_name) const{
     save << "U6 Players: " <<endl;
     auto itr_print_current_player = m_players.begin();
     
-    save << itr_print_current_player->second;/*
+    save << itr_print_current_player->second;
     string itr_category = itr_print_current_player->second.category;
     save << itr_category;
     for (int i = 0; i < m_players.size(); ++i) {
@@ -135,6 +135,6 @@ void PlayerList::main_write_file(const std::string & file_name) const{
             save << itr_print_current_player->second;
             ++itr_print_current_player;
         }
-    }*/
+    }
     
 }
