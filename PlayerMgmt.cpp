@@ -90,6 +90,7 @@ void PlayerMgmt::execute(char command, bool & done)
             if (category0 == "invalid") {
                 cout << "Invalid birth year. Click enter to return to commands." << endl;
                 cin.get();
+
                 break;
             }
             //category0 = "U"+ to_string(category_int);

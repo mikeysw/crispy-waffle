@@ -51,24 +51,17 @@ void PlayerList::read_file(const std::string & file_name){
     if (!ifs) // no file -- one will be created when write_file is called
         return;
 
-    string snum_players;
-    string sseason0;
     int num_players;
     int season0;
-    getline(ifs, snum_players);
-    cout << "! " << snum_players;
-    getline(ifs, sseason0);
-    cout << "! " << sseason0;
-    //ifs.get(); // \n
-    ifs >> season0;
+    ifs >> num_players;
+    cout << "num_p: " << num_players;
     ifs.get(); // \n
-    season = stoi(sseason0);
-    num_players = stoi(snum_players);
-    cout << season;
+    ifs >> season0;
+    cout << "sea: " << season0;
+    ifs.get(); // \n
     for (int i = 0; i < num_players; i++) {
         Player new_player;
         ifs >> new_player;
-        cout << new_player.lastName;
         // m_entries[new_entry.name] = new_entry;
         m_players.insert(m_players.end(),
                           {new_player.lastName, new_player});

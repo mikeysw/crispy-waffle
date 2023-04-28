@@ -81,19 +81,20 @@ inline void Player::update(const Player & new_data){
 }
 
 inline istream & operator>>(istream & in, Player & p){
-    //string temp;
-    getline(in, p.lastName);
-    cout << p.lastName << endl;
-    getline(in, p.firstName);
-    //cout << p.firstName << endl;
+    string temp;
+    in >> p.firstName;
+    cout << "fn" << p.firstName;
+    in >> p.lastName;
+    cout << "ln" << p.lastName;
+    in.get();
     //getline(in, temp);
     //p.yearOfBirth = stoi(temp);
     getline(in, p.yearOfBirth);
-    //cout << p.yearOfBirth << endl;
+    cout << "bd" << p.yearOfBirth;
     getline(in, p.category);
-    //cout << p.category << endl;
+    cout << "ca" << p.category;
     getline(in, p.regStatus);
-    //cout << p.regStatus << endl;
+    cout << "re" << p.regStatus;
 
     return in;
 }
