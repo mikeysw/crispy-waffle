@@ -81,25 +81,34 @@ inline void Player::update(const Player & new_data){
 }
 
 inline istream & operator>>(istream & in, Player & p){
-    string temp;
-    in >> p.firstName;
-    in >> p.lastName;
-    in.get();
+    //string temp;
+    getline(in, p.lastName);
+    cout << p.lastName << endl;
+    getline(in, p.firstName);
+    //cout << p.firstName << endl;
     //getline(in, temp);
     //p.yearOfBirth = stoi(temp);
     getline(in, p.yearOfBirth);
+    //cout << p.yearOfBirth << endl;
     getline(in, p.category);
+    //cout << p.category << endl;
     getline(in, p.regStatus);
+    //cout << p.regStatus << endl;
 
     return in;
 }
 
 inline ostream & operator<<(ostream & out, const Player & e){
-   out << e.firstName << " " << e.lastName << endl
-        //<< to_string(e.yearOfBirth) << endl
+   out << e.firstName << endl 
+        << " !!!!"
+        << e.lastName
+        << " !!!!"
         << e.yearOfBirth << endl
+        << " !!!!"
         << e.category << endl
-        << e.regStatus << endl;
+        << " !!!!"
+        << e.regStatus << endl
+        << " !!!!";
 
     return out;
 }

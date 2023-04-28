@@ -4,6 +4,8 @@
 
 using namespace std;
 
+
+
 void PlayerMgmt::run() {
     player_list.read_file(pl_file_name);
     MorS = true; 
@@ -25,7 +27,7 @@ void PlayerMgmt::display_main() const {
     string long_separator(50, '-');
     string short_separator(8, '-');
 
-    system(clear_command);
+    //system(clear_command);
 
     cout << long_separator << endl
          << "  (N)ew     (a)dd       (s)earch    \n"
@@ -84,37 +86,21 @@ void PlayerMgmt::execute(char command, bool & done)
             cout << "Year of birth: ";       
             getline(cin, yearOfBirth0);
             //e.setYearOfBirth(yearOfBirth0);
-            category_int = 2023 - stoi(yearOfBirth0); //season year - birthyear = category
-            if (category_int < 6){
-                category0="U6";
-            }
-            else if(6 <= category_int && category_int < 8){
-                category0="U8";
-            }
-            else if(8 <= category_int && category_int < 10){
-                category0="U10";
-            }
-            else if(10 <= category_int && category_int < 12){
-                category0="U12";
-            }
-            else if(12 <= category_int && category_int < 14){
-                category0="U14";
-            }
-            else if(14 <= category_int && category_int < 17){
-                category0="U17";
-            }
-            else{
-                "There is no category";
+            category0 = player_list.calculate_category(yearOfBirth0);
+            if (category0 == "invalid") {
+                cout << "Invalid birth year. Click enter to return to commands." << endl;
+                cin.get();
                 break;
             }
             //category0 = "U"+ to_string(category_int);
             //e.setCategory(category0);
-            cout << "RegStatus: " << category0;
+            cout << "Category: " << category0 << endl;
+            cout << "RegStatus: ";
             getline(cin, regStatus0);
             //e.setLastName(regStatus0);
             Player e(lastName0, firstName0, yearOfBirth0, category0, regStatus0);
             player_list.add(e);
-            cout << e.getFirstName() << " " << e.getLastName();
+            cout << e.getFirstName() << " " << e.getLastName() <<e.getYearOfBirth() << e.getCategory() << e.getRegStatus();
             cin.get();
             break;
         }
@@ -156,13 +142,13 @@ void PlayerMgmt::execute(char command, bool & done)
                 string filename;
                 cout << "Enter the name of the file to write to: ";
                 getline(cin, filename);
-                player_list.write_file(filename);
+                player_list.main_write_file(filename);
             }
             else{
                 string filename;
                 cout << "Enter the name of the file to write to: ";
                 getline(cin, filename);
-                player_list.main_write_file(filename);
+                player_list.write_file(filename);
             }
             /*
             for(const auto& [e.getLastName(), e.getFirstName(), e.getYearOfBirth(), e.Category(), e.RegStatus()] : player_list){

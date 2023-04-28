@@ -27,7 +27,7 @@ public:
 
     bool empty() const { return m_players.empty(); }
     void clear() { m_players.clear(); }
-
+    string calculate_category(std::string & yearOfBirth);
     void edit_current_player(const Player & new_data);
     void read_file(const string & file_name);
     void write_file(const string & file_name) const;

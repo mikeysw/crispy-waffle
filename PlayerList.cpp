@@ -21,21 +21,54 @@ void PlayerList::update_current_player(const Player & new_data){
         itr_current_player = result.first;
     }
 }
-
+string PlayerList::calculate_category(std::string & yearOfBirth){
+            int birth_year = stoi(yearOfBirth);
+            int category_int = season - birth_year; //season year - birthyear = category
+            if (4<= category_int && category_int < 6){
+                return "U6";
+            }
+            else if(6 <= category_int && category_int < 8){
+                return "U8";
+            }
+            else if(8 <= category_int && category_int < 10){
+                return "U10";
+            }
+            else if(10 <= category_int && category_int < 12){
+                return "U12";
+            }
+            else if(12 <= category_int && category_int < 14){
+                return "U14";
+            }
+            else if(14 <= category_int && category_int < 17){
+                return "U17";
+            }
+            else{
+                return "invalid";
+            }
+}
 void PlayerList::read_file(const std::string & file_name){
     ifstream ifs(file_name);
     if (!ifs) // no file -- one will be created when write_file is called
         return;
 
+    string snum_players;
+    string sseason0;
     int num_players;
     int season0;
-    ifs >> num_players;
-    ifs.get(); // \n
+    getline(ifs, snum_players);
+    cout << "! " << snum_players;
+    getline(ifs, sseason0);
+    cout << "! " << sseason0;
+    //ifs.get(); // \n
     ifs >> season0;
     ifs.get(); // \n
+    season = stoi(sseason0);
+    num_players = stoi(snum_players);
+    cout << season;
     for (int i = 0; i < num_players; i++) {
         Player new_player;
         ifs >> new_player;
+        cout << new_player.lastName;
         // m_entries[new_entry.name] = new_entry;
         m_players.insert(m_players.end(),
                           {new_player.lastName, new_player});
@@ -45,65 +78,70 @@ void PlayerList::read_file(const std::string & file_name){
 //search view write
 void PlayerList::write_file(const std::string & file_name) const{
     ofstream save(file_name);
-    sort(m_players.begin(),m_players.end());
     auto itr_print_current_player = m_players.begin();
     for (int i = 0; i < m_players.size(); ++i) {
-        cout << itr_print_current_player->second;
+        save << itr_print_current_player->second;
         ++itr_print_current_player;
     }
     
 }
 //main view write
 void PlayerList::main_write_file(const std::string & file_name) const{
-    ofstream outFile(file_name);
-    sort(m_players.begin(),m_players.end());
-    cout << "U6 Players: " <<endl;
+    ofstream save(file_name);
+    save << "U6 Players: " <<endl;
     auto itr_print_current_player = m_players.begin();
+    
+    save << itr_print_current_player->second;/*
+    string itr_category = itr_print_current_player->second.category;
+    save << itr_category;
     for (int i = 0; i < m_players.size(); ++i) {
-        if(itr_print_current_player->second.category == "U6"){
-            cout << itr_print_current_player->second;
+        cout<<"111";
+        if(itr_category.compare("U6") == 0){
+            cout << "111";
+            cin.get();
+            save << itr_print_current_player->second;
             ++itr_print_current_player;
         }
     }
-    cout << "U8 Players: " <<endl;
-    auto itr_print_current_player = m_players.begin();
+    save << "U8 Players: " <<endl;
+    itr_print_current_player = m_players.begin();
     for (int i = 0; i < m_players.size(); ++i) {
         if(itr_print_current_player->second.category == "U8"){
-            cout << itr_print_current_player->second;
+            save << itr_print_current_player->second;
             ++itr_print_current_player;
         }
     }
-    cout << "U10 Players: " <<endl;
-    auto itr_print_current_player = m_players.begin();
+    save << "U10 Players: " <<endl;
+    itr_print_current_player = m_players.begin();
     for (int i = 0; i < m_players.size(); ++i) {
         if(itr_print_current_player->second.category == "U10"){
-            cout << itr_print_current_player->second;
+            save << itr_print_current_player->second;
             ++itr_print_current_player;
         }
     }
-    cout << "U12 Players: " <<endl;
-    auto itr_print_current_player = m_players.begin();
+    save << "U12 Players: " <<endl;
+    itr_print_current_player = m_players.begin();
     for (int i = 0; i < m_players.size(); ++i) {
         if(itr_print_current_player->second.category == "U12"){
-            cout << itr_print_current_player->second;
+            save << itr_print_current_player->second;
             ++itr_print_current_player;
         }
     }
-    cout << "U14 Players: " <<endl;
-    auto itr_print_current_player = m_players.begin();
+    save << "U14 Players: " <<endl;
+    itr_print_current_player = m_players.begin();
     for (int i = 0; i < m_players.size(); ++i) {
         if(itr_print_current_player->second.category == "U14"){
-            cout << itr_print_current_player->second;
+            save << itr_print_current_player->second;
             ++itr_print_current_player;
         }
     }
-    cout << "U17 Players: " <<endl;
-    auto itr_print_current_player = m_players.begin();
+    save << "U17 Players: " <<endl;
+    itr_print_current_player = m_players.begin();
     for (int i = 0; i < m_players.size(); ++i) {
         if(itr_print_current_player->second.category == "U17"){
-            cout << itr_print_current_player->second;
+            save << itr_print_current_player->second;
             ++itr_print_current_player;
         }
-    }
+    }*/
     
 }
